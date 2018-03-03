@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Template 渲染模板</title>
+</head>
+<body>
+    <script src="../lib/template.js"></script>
+
+    <script type="text/template" id="template-tpl">
+        <h1>{{title}}</h1>
+        <ul>
+            {{#userLists}}
+            <li>
+                <!-- {{name}} - {{age}} -->
+            </li>
+            {{/userLists}}
+        </ul>
+        <p>
+            {{ab}}
+        </p>
+    </script>
+    <script>
+        var view = {
+            title: 'template engine',
+            userLists: [{
+                name: 'Jack',
+                age: 20
+            }, {
+                name: 'Tom',
+                age: 12
+            }],
+            address: {
+                province: 'gz',
+                road: 'hangxing'
+            },
+            array: ['a', 'b', 'c', 'd']
+        }
+    </script>
+
+</body>
+</html>
