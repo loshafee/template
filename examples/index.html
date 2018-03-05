@@ -9,19 +9,16 @@
 <body>
     <script src="../lib/template.js"></script>
 
-    <script type="text/template" id="template-tpl">
+    <div id="tpl">
         <h1>{{title}}</h1>
         <ul>
             {{#userLists}}
             <li>
-                <!-- {{name}} - {{age}} -->
+                {{name}} - {{age}} - {{title}}
             </li>
             {{/userLists}}
         </ul>
-        <p>
-            {{ab}}
-        </p>
-    </script>
+    </div>
     <script>
         var view = {
             title: 'template engine',
@@ -38,6 +35,11 @@
             },
             array: ['a', 'b', 'c', 'd']
         }
+        var outerReg = /{{#\s*(.*?)\s*}}((?:.|\s)*){{\/\s*\1\s*}}/g
+        var innerReg = /{{\s*((?:.|\s)*?)\s*}}/g
+        var tpl = document.getElementById('tpl').innerHTML
+        var template = new Template()
+        document.getElementById('tpl').innerHTML = template.render(tpl, view)
     </script>
 
 </body>
